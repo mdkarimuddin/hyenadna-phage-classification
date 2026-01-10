@@ -28,6 +28,8 @@ embeddings/*.npy
 
 # Results
 results/
+# Allow trained classifier models (smaller files)
+!results/*.pkl
 evaluation/
 *.png
 *.jpg
