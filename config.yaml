@@ -1,0 +1,84 @@
+# HyenaDNA Analysis Configuration
+project:
+  name: "HyenaDNA Phage/Plasmid Classification"
+  description: "Using HyenaDNA for phage, plasmid, and phage-plasmid sequence classification"
+  version: "1.0.0"
+
+data:
+  # Source data directories (same as megaDNA analysis)
+  phage_dir: "/scratch/project_2010726/pp/phages_fasta_files"
+  plasmid_dir: "/scratch/project_2010726/pp/plasmids_fasta_files"
+  phage_plasmid_dir: "/scratch/project_2010726/pp/phage-plasmid2"
+  
+  # Processed data directory
+  processed_dir: "data/processed"
+  
+  # Data splitting
+  train_ratio: 0.7
+  val_ratio: 0.15
+  test_ratio: 0.15
+  random_seed: 42
+
+# HyenaDNA model configuration
+hyenadna:
+  # Model variants available
+  models:
+    small: "hyenadna-tiny-1k-seqlen"
+    medium: "hyenadna-small-32k-seqlen" 
+    large: "hyenadna-medium-160k-seqlen"
+    xlarge: "hyenadna-large-1m-seqlen"
+  
+  # Default model to use
+  default_model: "hyenadna-medium-160k-seqlen"
+  
+  # Sequence processing
+  max_seq_len: 160000  # Can handle much longer sequences than megaDNA
+  tokenizer: "char"
+  
+  # Embedding extraction
+  pooling_strategy: "mean"  # mean, max, cls, or last
+  layer_indices: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]  # All layers for analysis
+
+# Traditional features
+traditional_features:
+  kmer_sizes: [3, 4, 5, 6, 7, 8]
+  sequence_stats: true
+  gc_content: true
+  nucleotide_frequencies: true
+
+# Classification models
+classifiers:
+  models:
+    - "random_forest"
+    - "logistic_regression" 
+    - "svm"
+    - "neural_network"
+  
+  # Neural network architecture
+  neural_network:
+    hidden_dims: [512, 256, 128]
+    dropout: 0.1
+    learning_rate: 0.001
+    batch_size: 16
+    epochs: 50
+
+# SLURM configuration
+slurm:
+  account: "project_2010726"
+  partition: "gpu"
+  time: "04:00:00"
+  nodes: 1
+  ntasks: 1
+  cpus_per_task: 8
+  mem: "32G"
+  gres: "gpu:v100:1"
+
+# Output configuration
+output:
+  results_dir: "results"
+  embeddings_dir: "embeddings"
+  logs_dir: "logs"
+  plots_dir: "plots"
+
+
+

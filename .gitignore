@@ -1,0 +1,75 @@
+# Python
+__pycache__/
+*.py[cod]
+*.so
+*.egg-info/
+*.egg
+dist/
+build/
+
+# Data
+data/raw/
+data/processed/
+*.fasta
+*.fa
+*.fna
+*.csv
+*.tsv
+*.parquet
+
+# Models & Embeddings
+models/
+embeddings/*.pkl
+embeddings/*.npy
+*.pt
+*.pth
+*.pkl
+*.h5
+
+# Results
+results/
+evaluation/
+*.png
+*.jpg
+*.pdf
+*.json
+*.txt
+*.csv
+
+# Logs
+logs/
+*.log
+*.out
+*.err
+slurm-*.out
+slurm-*.err
+
+# Environment
+.env
+.venv/
+venv/
+ENV/
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+
+# Jupyter
+.ipynb_checkpoints/
+*.ipynb
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Temporary files
+*.tmp
+*.temp
+*~
+
+# Container files
+*.sif
+*.def
