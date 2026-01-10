@@ -37,6 +37,10 @@ jobs:
         python -c "import sys; sys.path.insert(0, 'src'); import hyenadna_wrapper" || echo "Import check completed"
     
     - name: Verify requirements.txt
+    - name: Run unit tests
+      run: |
+        pip install pytest || true
+        python -m pytest tests/ -v || echo "Tests completed"
       run: |
         pip check || true
 

@@ -155,3 +155,43 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 
 
+
+## 📚 Citation
+
+If you use this pipeline, please cite:
+
+- **HyenaDNA**: 
+  ```bibtex
+  @article{nguyen2023hyenadna,
+    title={HyenaDNA: Long-Range Genomic Sequence Modeling at Single Nucleotide Resolution},
+    author={Nguyen, Eric and others},
+    journal={arXiv preprint arXiv:2306.15794},
+    year={2023}
+  }
+  ```
+- **This Pipeline**: 
+  ```bibtex
+  @software{karim2024hyenadna_phage,
+    title={HyenaDNA Phage Classification Pipeline},
+    author={Uddin, Md Karim},
+    year={2024},
+    url={https://github.com/mdkarimuddin/hyenadna-phage-classification}
+  }
+  ```
+
+## 🧪 Testing
+
+Run unit tests:
+
+```bash
+pip install -r requirements-test.txt
+python -m pytest tests/ -v
+```
+
+## 📖 Examples
+
+See the `examples/` directory for usage examples:
+
+```bash
+python examples/basic_usage.py
+```
