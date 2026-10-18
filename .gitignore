@@ -75,3 +75,6 @@ Thumbs.db
 # Container files
 *.sif
 *.def
+
+# Keep dependency files tracked
+!requirements*.txt
